@@ -46,9 +46,7 @@ const Security: React.FC<{
     // Add default restoreOriginalUri callback
     if (!oktaAuth.options.restoreOriginalUri) {
       oktaAuth.options.restoreOriginalUri = async (_, originalUri) => {
-        const basepath = history.createHref({});
-        const originalUriWithoutBasepath = originalUri.replace(basepath, '/');
-        history.replace(toRelativeUrl(originalUriWithoutBasepath, window.location.origin));
+        history.replace(toRelativeUrl(originalUri, window.location.origin));
       };
     }
 
