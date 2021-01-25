@@ -32,7 +32,7 @@ const SecureRoute: React.FC<{
 
       pendingLogin.current = true;
 
-      const oringinalUri = window.location.origin + match.url + window.location.search;
+      const oringinalUri = window.location.origin + match.url + window.location.search + window.location.hash;
       oktaAuth.setOriginalUri(oringinalUri);
       const onAuthRequiredFn = onAuthRequired || _onAuthRequired;
       if (onAuthRequiredFn) {
